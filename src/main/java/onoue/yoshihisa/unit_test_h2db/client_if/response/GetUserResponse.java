@@ -1,19 +1,12 @@
-package onoue.yoshihisa.unit_test_h2db.domain.entity;
+package onoue.yoshihisa.unit_test_h2db.client_if.response;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.io.Serializable;
 
-@Entity
-public class User {
-	@Id
+public class GetUserResponse extends Response implements Serializable {
+	private static final long serialVersionUID = 4722150550565982178L;
+
 	private long id;
 	private String name;
-
-	public User(long id, String name) {
-		this.id = id;
-		this.name = name;
-	}
-
 	public long getId() {
 		return id;
 	}

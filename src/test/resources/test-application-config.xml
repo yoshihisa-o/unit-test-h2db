@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Uncomment and add your base-package here: <context:component-scan base-package="org.springframework.samples.service"/> -->
+
+	<!-- Allow Autowired to find the binding resource -->
+	<context:component-scan base-package="onoue.yoshihisa.unit_test_h2db" />
+
+	<!-- Configuration of data source (= H2 DB) -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="org.h2.Driver" />
+		<property name="url"
+			value="jdbc:h2:mem:test_db;MODE=Oracle;DB_CLOSE_DELAY=-1" />
+		<property name="username" value="sa" />
+		<property name="password" value="" />
+	</bean>
+
+	<!-- Configuration of Hibernate's session -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect = org.hibernate.dialect.H2Dialect
+				hibernate.show_sql = true
+				hibernate.format_sql = false
+				hibernate.hbm2ddl.auto = create-drop
+			</value>
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				<value>onoue.yoshihisa.unit_test_h2db.domain.entity.User</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Transaction manager -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- UserDao -->
+	<bean id="userDao" class="onoue.yoshihisa.unit_test_h2db.domain.dao.UserDaoImpl"></bean>
+
+</beans>
