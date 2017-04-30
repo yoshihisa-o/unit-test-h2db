@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import onoue.yoshihisa.unit_test_h2db.client_if.request.ChangeUserNameRequest;
 import onoue.yoshihisa.unit_test_h2db.client_if.response.ChangeUserNameResponse;
-import onoue.yoshihisa.unit_test_h2db.domain.service.ChangeUserNameService;
+import onoue.yoshihisa.unit_test_h2db.service.ChangeUserNameService;
 
 @Controller
 public class ChangeUserNameController {

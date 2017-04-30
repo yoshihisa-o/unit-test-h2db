@@ -34,7 +34,7 @@
 		</property>
 		<property name="annotatedClasses">
 			<list>
-				<value>onoue.yoshihisa.unit_test_h2db.domain.entity.User</value>
+				<value>onoue.yoshihisa.unit_test_h2db.entity.User</value>
 			</list>
 		</property>
 	</bean>
@@ -46,6 +46,6 @@
 	</bean>
 
 	<!-- UserDao -->
-	<bean id="userDao" class="onoue.yoshihisa.unit_test_h2db.domain.dao.UserDaoImpl"></bean>
+	<bean id="userDao" class="onoue.yoshihisa.unit_test_h2db.dao.UserDaoImpl"></bean>
 
 </beans>

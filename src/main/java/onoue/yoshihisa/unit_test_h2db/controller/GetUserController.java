@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import onoue.yoshihisa.unit_test_h2db.client_if.request.GetUserRequest;
 import onoue.yoshihisa.unit_test_h2db.client_if.response.GetUserResponse;
-import onoue.yoshihisa.unit_test_h2db.domain.entity.User;
-import onoue.yoshihisa.unit_test_h2db.domain.service.GetUserService;
+import onoue.yoshihisa.unit_test_h2db.entity.User;
+import onoue.yoshihisa.unit_test_h2db.service.GetUserService;
 
 @Controller
 public class GetUserController {

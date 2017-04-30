@@ -1,4 +1,4 @@
-package onoue.yoshihisa.unit_test_h2db.domain.service;
+package onoue.yoshihisa.unit_test_h2db.service;
 
 public interface ChangeUserNameService {
 	public static final int SUCCESS = 0;

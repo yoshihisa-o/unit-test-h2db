@@ -1,11 +1,11 @@
-package onoue.yoshihisa.unit_test_h2db.domain.dao;
+package onoue.yoshihisa.unit_test_h2db.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 
-import onoue.yoshihisa.unit_test_h2db.domain.entity.User;
+import onoue.yoshihisa.unit_test_h2db.entity.User;
 
 public class UserDaoImpl implements UserDao {
 	@Autowired

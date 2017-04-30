@@ -1,4 +1,4 @@
-package onoue.yoshihisa.unit_test_h2db.domain.entity;
+package onoue.yoshihisa.unit_test_h2db.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

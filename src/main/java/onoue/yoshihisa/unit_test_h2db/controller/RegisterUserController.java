@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import onoue.yoshihisa.unit_test_h2db.client_if.request.RegisterUserRequest;
 import onoue.yoshihisa.unit_test_h2db.client_if.response.RegisterUserResponse;
-import onoue.yoshihisa.unit_test_h2db.domain.service.RegisterUserService;
+import onoue.yoshihisa.unit_test_h2db.service.RegisterUserService;
 
 @Controller
 public class RegisterUserController {

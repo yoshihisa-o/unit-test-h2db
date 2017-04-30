@@ -1,6 +1,6 @@
-package onoue.yoshihisa.unit_test_h2db.domain.dao;
+package onoue.yoshihisa.unit_test_h2db.dao;
 
-import onoue.yoshihisa.unit_test_h2db.domain.entity.User;
+import onoue.yoshihisa.unit_test_h2db.entity.User;
 
 public interface UserDao {
 	public User get(long id);
