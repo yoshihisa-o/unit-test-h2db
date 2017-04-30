@@ -27,5 +27,12 @@ public class UserDaoImpl implements UserDao {
 	public void save(User user) throws DataAccessException {
 		Session session = sessionFactory.getCurrentSession();
 		session.save(user);
+		session.flush();
+	}
+
+	public void update(User user) {
+		Session session = sessionFactory.getCurrentSession();
+		session.update(user);
+		session.flush();
 	}
 }

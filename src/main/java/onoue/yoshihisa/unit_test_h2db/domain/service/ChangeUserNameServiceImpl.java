@@ -9,18 +9,18 @@ import onoue.yoshihisa.unit_test_h2db.domain.dao.UserDao;
 import onoue.yoshihisa.unit_test_h2db.domain.entity.User;
 
 @Service
-public class RegisterUserServiceImpl implements RegisterUserService {
+public class ChangeUserNameServiceImpl implements ChangeUserNameService {
 
 	@Autowired
 	@Qualifier("userDao")
 	private UserDao userDao;
 
 	@Transactional
-	public int registerUser(long id, String name) {
+	public int changeUserName(long id, String name) {
 		User user = new User();
 		user.setId(id);
 		user.setName(name);
-		userDao.save(user);
+		userDao.update(user);
 		return SUCCESS;
 	}
 }

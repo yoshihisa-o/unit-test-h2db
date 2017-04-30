@@ -9,7 +9,6 @@ import onoue.yoshihisa.unit_test_h2db.client_if.response.RegisterUserResponse;
 import onoue.yoshihisa.unit_test_h2db.domain.service.RegisterUserService;
 
 @Controller
-@RequestMapping("/registerUser")
 public class RegisterUserController {
 	public static final int SUCCESS = 0;
 	public static final int FAIL = 1;
@@ -17,6 +16,7 @@ public class RegisterUserController {
 	@Autowired
 	private RegisterUserService service;
 
+	@RequestMapping("/registerUser")
 	public RegisterUserResponse registerUser(RegisterUserRequest request) {
 		RegisterUserResponse res = new RegisterUserResponse();
 		if (service.registerUser(request.getId(), request.getName()) == RegisterUserService.SUCCESS) {

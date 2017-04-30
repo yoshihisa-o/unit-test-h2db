@@ -9,31 +9,30 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
-import com.github.springtestdbunit.annotation.ExpectedDatabase;
+import com.github.springtestdbunit.annotation.DatabaseSetup;
 
-import onoue.yoshihisa.unit_test_h2db.client_if.request.RegisterUserRequest;
-import onoue.yoshihisa.unit_test_h2db.client_if.response.RegisterUserResponse;
+import onoue.yoshihisa.unit_test_h2db.client_if.request.GetUserRequest;
+import onoue.yoshihisa.unit_test_h2db.client_if.response.GetUserResponse;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-//ApplicationContext will be loaded from "classpath:/test-application-config.xml
 @ContextConfiguration(locations="/test-application-config.xml")
 @TestExecutionListeners({
-	DbUnitTestExecutionListener.class })
-public class RegisterUserControllerTest extends AbstractTransactionalJUnit4SpringContextTests {
-	// Never use "new" to instantiate. Otherwise Autowired in the following class will not work.
+    DbUnitTestExecutionListener.class })
+public class GetUserControllerTest extends AbstractTransactionalJUnit4SpringContextTests {
 	@Autowired
-	RegisterUserController controller;
+	GetUserController controller;
 
 	@Test
-	@ExpectedDatabase("/RegisterUserControllerTest_EXPECTED_PASS.xml")
-	public void register_user_success() {
-		RegisterUserRequest request = new RegisterUserRequest();
+	@DatabaseSetup("/GetUserControllerTest_INIT_PASS.xml")
+	public void get_user_success() {
+		GetUserRequest request = new GetUserRequest();
 		request.setId(1);
-		request.setName("Test User 1");
-		RegisterUserResponse response = controller.registerUser(request);
+		GetUserResponse response = controller.getUser(request);
 		assertThat(response.getResult(), is(0));
+		assertThat(response.getId(), is((long)1));
+		assertThat(response.getName(), is("Test User 1"));
 	}
 }
